@@ -1,0 +1,16 @@
+version: '2.2'
+
+services:
+  minio:
+    image: quay.io/minio/minio
+    ports:
+      - 9200:9000
+      - 9090:9001
+    # networks:
+    #   - zoo_net
+    command: server /data --console-address ":9001"
+    volumes:
+      - /home/karthik/work/docker/minIO/data:/data
+    environment:
+      - "MINIO_ROOT_USER=ROOTNAME"
+      - "MINIO_ROOT_PASSWORD=CHANGEME123"

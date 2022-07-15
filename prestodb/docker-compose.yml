@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  presto:
+    image: prestodb:latest
+    command: /opt/presto/bin/launcher run
+    ports:
+      - 8383:8080
+    volumes:
+      - /home/karthik/work/docker/prestodb/data/etc:/opt/presto/etc
+      - /home/karthik/work/docker/prestodb/data/sampledata:/opt/presto/testdata
